@@ -1,8 +1,10 @@
 import os 
 from gpiozero import Motor
 from time import sleep
+from config import *
 
-motor = Motor(forward=4, backward=17)
+
+motor = Motor(forward = fan.pin)
 
 # Return CPU temperature as a character string                                      
 def getCPUtemp():
@@ -14,11 +16,11 @@ while True:
     temp = getCPUtemp()
     if temp > 45:
         try:
-            fan.on()
+            motor.forward()
         except:
             pass
     else:
         try:
-            fan.on()
+            motor.off()
         except:
             pass
