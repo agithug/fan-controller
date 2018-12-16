@@ -1,4 +1,8 @@
 import os 
+from gpiozero import Motor
+from time import sleep
+
+motor = Motor(forward=4, backward=17)
 
 # Return CPU temperature as a character string                                      
 def getCPUtemp():
